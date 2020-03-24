@@ -12,7 +12,9 @@ const NewPlayer = props => {
     const addPlayer = e => {
         e.preventDefault();
         const Player = {firstName,lastName,position,age};
-        axios.post("http://localhost:8000/api/players", Player)
+        axios.post("http://localhost:8000/api/players", Player, {
+            withCredentials: true
+          })
             .then( res => 
                 console.log(res),
                 navigate("/manage")

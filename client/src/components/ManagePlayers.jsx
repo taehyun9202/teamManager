@@ -6,7 +6,9 @@ import axios from 'axios';
 const ManagePlayers = props => {
     const [players, setPlayers] = useState([]);
     const fetchActivities = () =>{
-        axios.get("http://localhost:8000/api/players")
+        axios.get("http://localhost:8000/api/players", {
+            withCredentials: true
+          })
             .then(res => setPlayers(res.data))
             .catch(err =>console.log(err));
     }
@@ -16,7 +18,9 @@ const ManagePlayers = props => {
     },[])
 
     const remove = _id => {
-        axios.delete(`http://localhost:8000/api/players/${_id}`)
+        axios.delete(`http://localhost:8000/api/players/${_id}`, {
+            withCredentials: true
+          })
             .then(res => {
                 fetchActivities();
             })
@@ -26,7 +30,7 @@ const ManagePlayers = props => {
     return (
         <div className="columns" style={{padding:"40px"}}>
         <div className="column">
-            <h1 className="title">Favorite Authors</h1>
+            <h1 className="title">Player</h1>
             <div className="message-header">
                 <Link style={{paddingLeft:"10px"}} to="/manage">Player List</Link>
                 <Link style={{position:"absolute", left:"130px"}} to="/manage/new">Add Player</Link>

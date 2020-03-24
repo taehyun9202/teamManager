@@ -4,6 +4,7 @@ import { Router, Link } from '@reach/router';
 import PlayerStatus from './components/PlayerStatus';
 import ManagePlayer from './components/ManagePlayers';
 import NewPlayer from './components/NewPlayer';
+import SignInView from './components/SignInView';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <PlayerStatus path="/status" />
         <ManagePlayer path="/manage" />
         <NewPlayer path="/manage/new" />
+        <SignInView path = "/"/>
       </Router>
     </div>
   );

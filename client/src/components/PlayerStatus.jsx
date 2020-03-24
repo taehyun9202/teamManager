@@ -6,7 +6,9 @@ import axios from 'axios';
 const ManagePlayers = props => {
     const [players, setPlayers] = useState([]);
     const fetchActivities = () =>{
-        axios.get("http://localhost:8000/api/players")
+        axios.get("http://localhost:8000/api/players", {
+            withCredentials: true
+          })
             .then(res => setPlayers(res.data))
             .catch(err =>console.log(err));
     }
